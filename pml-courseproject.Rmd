@@ -1,6 +1,9 @@
 ---
 title: "Practical Machine Learning Course Project"
 author: "Xiaoning PEI"
+output: 
+  html_document: 
+    keep_md: yes
 ---
 
 ##Executive Summary
@@ -73,12 +76,6 @@ confusionMatrix(p.rf,test$classe)
 + **Selecting final model**: based on the comparision of out of sample error, we chose the model ran by random forest, here is the model information:
 ```{r,echo=FALSE,cache=TRUE}
 fit.rf$finalModel
-```
-
-## Predicting 20 testing problems
-We predicted 20 cases in testing set, and get the outcomes as following:
-```{r,echo=TRUE,cache=TRUE}
-predict(fit.rf,testing)
 ```
 
 THE END. THANKS FOR READING£¡

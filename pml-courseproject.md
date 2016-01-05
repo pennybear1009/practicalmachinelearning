@@ -1,7 +1,5 @@
----
-title: "Practical Machine Learning Course Project"
-author: "Xiaoning PEI"
----
+# Practical Machine Learning Course Project
+Xiaoning PEI  
 
 ##Executive Summary
 People use devices such as Jawbone Up, Nike FuelBand, and Fitbit, to collect a large amount of data about personal activity relatively inexpensively. One thing that people regularly do is quantify how much of a particular activity they do, but they rarely quantify how well they do it. 
@@ -10,7 +8,7 @@ In this report, our goal is to use data collected from accelerometers on the bel
 
 Read more: [http://groupware.les.inf.puc-rio.br/har#dataset#ixzz3vDjtjhmW]
 
-##Data Preprocessing
+##Data Preprocessing  
 Before building models, we did the following data preprocessing on training and testing set:
 
 + **Loading data**: we loaded "pml-training.txt" as training and "pml-testing" as testing.
@@ -75,33 +73,33 @@ confusionMatrix(p.gbm,test$classe)
 ## 
 ##           Reference
 ## Prediction    A    B    C    D    E
-##          A 2232    6    0    0    0
-##          B    0 1508    3    0    0
-##          C    0    2 1357    1    0
-##          D    0    2    8 1285    9
-##          E    0    0    0    0 1433
+##          A 2232    2    0    0    0
+##          B    0 1511    1    0    0
+##          C    0    3 1359    0    0
+##          D    0    2    8 1286    8
+##          E    0    0    0    0 1434
 ## 
 ## Overall Statistics
-##                                           
-##                Accuracy : 0.996           
-##                  95% CI : (0.9944, 0.9973)
-##     No Information Rate : 0.2845          
-##     P-Value [Acc > NIR] : < 2.2e-16       
-##                                           
-##                   Kappa : 0.995           
-##  Mcnemar's Test P-Value : NA              
+##                                          
+##                Accuracy : 0.9969         
+##                  95% CI : (0.9955, 0.998)
+##     No Information Rate : 0.2845         
+##     P-Value [Acc > NIR] : < 2.2e-16      
+##                                          
+##                   Kappa : 0.9961         
+##  Mcnemar's Test P-Value : NA             
 ## 
 ## Statistics by Class:
 ## 
 ##                      Class: A Class: B Class: C Class: D Class: E
-## Sensitivity            1.0000   0.9934   0.9920   0.9992   0.9938
-## Specificity            0.9989   0.9995   0.9995   0.9971   1.0000
-## Pos Pred Value         0.9973   0.9980   0.9978   0.9854   1.0000
-## Neg Pred Value         1.0000   0.9984   0.9983   0.9998   0.9986
+## Sensitivity            1.0000   0.9954   0.9934   1.0000   0.9945
+## Specificity            0.9996   0.9998   0.9995   0.9973   1.0000
+## Pos Pred Value         0.9991   0.9993   0.9978   0.9862   1.0000
+## Neg Pred Value         1.0000   0.9989   0.9986   1.0000   0.9988
 ## Prevalence             0.2845   0.1935   0.1744   0.1639   0.1838
-## Detection Rate         0.2845   0.1922   0.1730   0.1638   0.1826
-## Detection Prevalence   0.2852   0.1926   0.1733   0.1662   0.1826
-## Balanced Accuracy      0.9995   0.9965   0.9957   0.9982   0.9969
+## Detection Rate         0.2845   0.1926   0.1732   0.1639   0.1828
+## Detection Prevalence   0.2847   0.1927   0.1736   0.1662   0.1828
+## Balanced Accuracy      0.9998   0.9976   0.9965   0.9986   0.9972
 ```
 2.Random Forest:overall out of sample accuracy is 0.9983 
 
@@ -114,11 +112,11 @@ confusionMatrix(p.rf,test$classe)
 ## 
 ##           Reference
 ## Prediction    A    B    C    D    E
-##          A 2232    4    0    0    0
-##          B    0 1514    2    0    0
-##          C    0    0 1366    1    0
-##          D    0    0    0 1285    1
-##          E    0    0    0    0 1441
+##          A 2232    1    0    0    0
+##          B    0 1516    1    0    0
+##          C    0    1 1364    0    0
+##          D    0    0    3 1286    2
+##          E    0    0    0    0 1440
 ## 
 ## Overall Statistics
 ##                                          
@@ -133,14 +131,14 @@ confusionMatrix(p.rf,test$classe)
 ## Statistics by Class:
 ## 
 ##                      Class: A Class: B Class: C Class: D Class: E
-## Sensitivity            1.0000   0.9974   0.9985   0.9992   0.9993
-## Specificity            0.9993   0.9997   0.9998   0.9998   1.0000
-## Pos Pred Value         0.9982   0.9987   0.9993   0.9992   1.0000
-## Neg Pred Value         1.0000   0.9994   0.9997   0.9998   0.9998
+## Sensitivity            1.0000   0.9987   0.9971   1.0000   0.9986
+## Specificity            0.9998   0.9998   0.9998   0.9992   1.0000
+## Pos Pred Value         0.9996   0.9993   0.9993   0.9961   1.0000
+## Neg Pred Value         1.0000   0.9997   0.9994   1.0000   0.9997
 ## Prevalence             0.2845   0.1935   0.1744   0.1639   0.1838
-## Detection Rate         0.2845   0.1930   0.1741   0.1638   0.1837
-## Detection Prevalence   0.2850   0.1932   0.1742   0.1639   0.1837
-## Balanced Accuracy      0.9996   0.9985   0.9992   0.9995   0.9997
+## Detection Rate         0.2845   0.1932   0.1738   0.1639   0.1835
+## Detection Prevalence   0.2846   0.1933   0.1740   0.1645   0.1835
+## Balanced Accuracy      0.9999   0.9993   0.9985   0.9996   0.9993
 ```
 
 + **Selecting final model**: based on the comparision of out of sample error, we chose the model ran by random forest, here is the model information:
@@ -153,27 +151,15 @@ confusionMatrix(p.rf,test$classe)
 ##                      Number of trees: 500
 ## No. of variables tried at each split: 40
 ## 
-##         OOB estimate of  error rate: 0.12%
+##         OOB estimate of  error rate: 0.1%
 ## Confusion matrix:
 ##      A    B    C    D    E  class.error
 ## A 3348    0    0    0    0 0.0000000000
-## B    3 2274    2    0    0 0.0021939447
+## B    0 2278    1    0    0 0.0004387889
 ## C    0    2 2050    2    0 0.0019474197
-## D    0    0    2 1927    1 0.0015544041
-## E    0    0    0    2 2163 0.0009237875
+## D    0    0    5 1924    1 0.0031088083
+## E    0    0    0    1 2164 0.0004618938
 ```
 
-## Predicting 20 testing problems
-We predicted 20 cases in testing set, and get the outcomes as following:
-
-```r
-predict(fit.rf,testing)
-```
-
-```
-##  [1] B A B A A E D B A A B C B A E E A B B B
-## Levels: A B C D E
-```
-
-THE END. THANKS FOR READING£¡
+THE END. THANKS FOR READINGï¼
 
